@@ -1,79 +1,754 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Keypoint1</title>
+    <link href="assets/css/ionic.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/keypoint.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/slides.css" rel="stylesheet" type="text/css">
+</head>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Pgday14 : ">
+<body>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<div id="wrapper"></div>
 
-    <title>Pgday14</title>
-  </head>
+<div id="slides" data-base-url="">
 
-  <body>
+<div class="slide">
+    <img src="images/buildbot2013.png" style="max-height: 46%"/>
+    <div style="text-align: left;margin-top: 24px;">
+        <h1 style="font-size: 3.8rem">Building Native-Like PhoneGap Apps</h1>
+    </div>
+</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ccoenraets/pgday14">View on GitHub</a>
+<div class="slide horizontal">
+    <div>
+        <p>Christophe Coenraets</p>
+        <p><img src="images/salesforce.png"/></p>
+        <p>http://coenraets.org<br/>
+        @ccoenraets</p>
+    </div>
+    <div>
+        <p>Holly Schinsky</p>
+        <p><img src="images/adobe.png" height="63"/></p>
+        <p>http://devgirl.org<br/>
+        @devgirlfl</p>
+    </div>
+</div>
 
-          <h1 id="project_title">Pgday14</h1>
-          <h2 id="project_tagline"></h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ccoenraets/pgday14/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ccoenraets/pgday14/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+<div class="slide">
+    <h1 style="padding-bottom: 10px;">You</h1>
+    <img id="audience-pic"/>
+    <button class="button icon ion-camera picture-btn" style="width: 80px;"></button>
+</div>
+
+<div class="slide">
+    <h1>Agenda</h1>
+    <ul>
+        <li>Pitfalls and Common Solutions</li>
+        <li>Architecture</li>
+        <li>Framework Landscape</li>
+        <li>AngularJS</li>
+        <li>Ionic</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1>What's This?</h1>
+</div>
+
+<div class="slide">
+    <h1>A PhoneGap App!</h1>
+    <img src="images/wrapper-bridge.png" class="full"/><br/>
+</div>
+
+<div class="slide white">
+    <h1>Pluggable Data Adapters</h1>
+    <div class="grid">
+        <div class="grid-cell">App</div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+    <div style="display: flex" class="grid">
+        <div class="grid-cell">Data Interface</div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Pgday14 maintained by <a href="https://github.com/ccoenraets">ccoenraets</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
+    <div style="display: flex" class="grid">
+        <div class="grid-cell">Ajax/JSON</div>
+        <div class="grid-cell">Memory</div>
+        <div class="grid-cell">LocalStorage</div>
+        <div class="grid-cell">WebSQL</div>
+    </div>
+</div>
+
+<div class="slide white">
+    <button class="button button-large button-positive" onclick="alert('Don\'t be that guy!')">
+        Click Me
+    </button>
+</div>
+
+<div class="slide white">
+    <p>cordova plugin add org.apache.cordova.dialogs</p>
+
+    <p>
+        <button class="button button-large button-positive" onclick="navigator.notification.alert('Looking much better!', null, 'Phew', 'Relax')">
+            Click Me
+        </button>
+    </p>
+
+<pre class="prettyprint" style="font-size: 1.8rem !important;">navigator.notification.alert(message,
+                             callback,
+                             title,
+                             buttonName);
+</pre>
+</div>
+
+<div class="slide white">
+    <h1>Slow</h1>
+    <ul class="list" style="width: 400px;margin: auto;">
+        <li class="item"><a href="#" class="needsclick">Item 2</a></li>
+        <li class="item"><a href="#" class="needsclick">Item 2</a></li>
+        <li class="item"><a href="#" class="needsclick">Item 3</a></li>
+    </ul>
+    <p><a class="button button-large button-positive slow-btn needsclick" href="#">Click Me</a></p>
+    <h2 id="log-slow" style="margin-top:20px;">click: 0ms</h2>
+</div>
+
+<div class="slide white">
+    <h1>Fast</h1>
+    <ul class="list" style="width: 400px;">
+        <li class="item"><a href="#" class="fastclick">Item 1</a></li>
+        <li class="item"><a href="#" class="fastclick">Item 2</a></li>
+        <li class="item"><a href="#" class="fastclick">Item 3</a></li>
+    </ul>
+    <p><a class="button button-large button-positive fastclick" href="#">Click Me</a></p>
+    <h2 id="log-fast" class="log" style="margin-top:20px;">touchend: 0ms</h2>
+</div>
+
+<div class="slide">
+    <h2><a href="https://github.com/ftlabs/fastclick" target="_system">https://github.com/ftlabs/fastclick</a></h2>
+    <p>iOS 8 status: https://github.com/ftlabs/fastclick/issues/262</p>
+
+</div>
+
+
+<div class="slide white">
+    <!--<h1>Package web apps as mobile apps?</h1>-->
+    <h2>Your web app doesn't look like this anymore</h2>
+    <img src="images/sitemap.gif" class="full" />
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Single Page Application</h1>
+<pre class="prettyprint" style="font-size:4rem;line-height: 4rem;">&lt;html>
+&lt;head>
+    &lt;title>My App&lt;/title>
+    &lt;script src="app.js">&lt;/script>
+&lt;/head>
+&lt;body>&lt;/body>
+&lt;/html>
+</pre>
+</div>
+
+<div class="slide">
+    <h1>Multi-Page vs Single-Page Architecture</h1>
+    <table style="width: 900px;">
+        <thead>
+        <tr>
+            <td></td>
+            <td>Multi-Page</td>
+            <td>Single-Page</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="fragment">
+            <td>UI Generation Tier</td>
+            <td>Server-Side</td>
+            <td>Client-Side</td>
+        </tr>
+        <tr class="fragment">
+            <td>Language</td>
+            <td>Java, .NET, PHP, RoR</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr class="fragment">
+            <td>Offline Support</td>
+            <td>Limited</td>
+            <td>Yes</td>
+        </tr>
+        <tr class="fragment">
+            <td>Page Transitions</td>
+            <td>Browser</td>
+            <td>Developer</td>
+        </tr>
+        <tr class="fragment">
+            <td>Performance</td>
+            <td>Laggy</td>
+            <td>Fast</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="slide">
+    <h1>New Challenges</h1>
+    <ul>
+        <li>Create large, complex apps in JavaScript</li>
+        <li>Avoid problems in a long lived DOM</li>
+        <li>Create complex UI in JavaScript</li>
+    </ul>
+</div>
+
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Building HTML with JavaScript</h1>
+<xmp class="prettyprint xsmall" style="font-size: 0.5em !important;line-height: 1.3em">var html =
+'<div class="topcoat-navigation-bar">' +
+    '<div class="topcoat-navigation-bar__item left quarter">' +
+        '<a class="topcoat-icon-button--quiet back-button" href="#">' +
+            '<span class="topcoat-icon topcoat-icon--back"></span>' +
+            '</a>' +
+        '</div>' +
+    '<div class="topcoat-navigation-bar__item center half">' +
+        '<h1 class="topcoat-navigation-bar__title">Geometrixx</h1>' +
+        '</div>' +
+    '</div>' +
+'<div class="page-body scroller">' +
+    '<img class="small-pic" src="../assets/img/' + product.smallPic + '" />' +
+    '<h1 class="product-name">' + product.name + '</h1>' +
+    '<h2 class="category">' + product.category + '</h2>' +
+    '<img src="../assets/css/images/star' + product.rating + '.png" />' +
+    '<h2 class="price">' + product.price + '</h2>' +
+    '<a class="topcoat-icon-button topcoat-button--cta">' +
+        '<span class="topcoat-icon icon-facebook"></span>' +
+        '</a> ' +
+    '<a class="topcoat-icon-button topcoat-button--cta">' +
+        '<span class="topcoat-icon icon-twitter"></span>' +
+        '</a>' +
+    '</div>';
+</xmp>
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Using Templates</h1>
+    <xmp class="prettyprint xsmall" style="font-size: 0.5em !important;line-height: 1.3em"><div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item left quarter">
+            <a class="topcoat-icon-button--quiet back-button" href="#">
+                <span class="topcoat-icon topcoat-icon--back"></span>
+            </a>
+        </div>
+        <div class="topcoat-navigation-bar__item center half">
+            <h1 class="topcoat-navigation-bar__title">Geometrixx</h1>
+        </div>
+    </div>
+        <div class="page-body scroller">
+            <img class="small-pic" src="assets/img/{{this.smallPic}}"/>
+            <h1 class="product-name">{{this.name}}</h1>
+            <h2 class="category">{{this.category}}</h2>
+            <img src="assets/css/images/star{{this.rating}}.png"/>
+            <h2 class="price">{{this.price}}</h2>
+            <a class="topcoat-icon-button topcoat-button--cta facebook-button">
+                <span class="topcoat-icon icon-facebook"></span>
+            </a>
+            <a class="topcoat-icon-button topcoat-button--cta twitter-button">
+                <span class="topcoat-icon icon-twitter"></span>
+            </a>
+        </div>
+    </xmp>
+</div>
+
+<div class="slide">
+    <h1>Templates</h1>
+    <ul>
+        <li>Handlebars.js</li>
+        <li>Mustache.js</li>
+        <li>Underscore.js (built-in)</li>
+        <li>AngularJS (built-in)</li>
+    </ul>
+</div>
+
+<div class="slide">
+    <h1>Provide Structure to Your Application<br/>
+        MV*</h1>
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Model</h1>
+<pre class="prettyprint">
+var Product = function() {
+
+    this.url = "/product";
+
+    this.validate = function() {
+
+    };
+
+});
+</pre>
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">View</h1>
+<pre class="prettyprint">
+var ProductView = function () {
+
+    this.initialize = function () {
+    };
+
+    this.render = function() {
+    };
+
+}
+</pre>
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Controller</h1>
+<pre class="prettyprint xsmall" style="font-size: 0.7em !important;line-height: 1.3em">
+var JSONPAdapter = function(url) {
+
+    this.findById = function(id) {
+        return $.ajax({url: url + "/" + id, dataType: "jsonp"});
+    }
+
+    this.findByName = function(searchKey) {
+        return $.ajax({url: url + "?name=" + searchKey, dataType: "jsonp"});
+    }
+
+}
+</pre>
+</div>
+
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Use Native Scrolling</h1>
+    <xmp class="prettyprint" style="font-size:0.8em !important">#scroller {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 48px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+    </xmp>
+</div>
+
+<div class="slide">
+    <h1>Use CSS Transitions<br/>+<br/>Hardware Acceleration</h1>
+</div>
+
+<div class="slide" style="margin:0;padding:0;">
+    <div style="position:relative; width: 1024px; height: 600px;">
+        <img id="phone" src="images/iphone5.png" style="position: absolute;left:349px;top:20px;width: 326px;max-height: 100%"/>
+        <div id="pageA" class="page page-left" style="background-color:red">
+            <a class="button" onclick="javascript:slide('pageA', 'page-left')">Left</a>
+            <a class="button" onclick="javascript:slide('pageA', 'page-center')">Center</a>
+            <a class="button" onclick="javascript:slide('pageA', 'page-right')">Right</a>
+            <br/>
+            <br/>
+            <br/>
+            <span id="pageAclass">class="left"</span>
+        </div>
+        <div id="pageB" class="page page-center" style="background-color: green">
+            <a class="button" onclick="javascript:slide('pageB', 'page-left')">Left</a>
+            <a class="button" onclick="javascript:slide('pageB', 'page-center')">Center</a>
+            <a class="button" onclick="javascript:slide('pageB', 'page-right')">Right</a>
+            <br/>
+            <br/>
+            <br/>
+            <span id="pageBclass">class="center"</span>
+        </div>
+        <div id="pageC" class="page page-right" style="background-color: blue">
+            <a class="button" onclick="javascript:slide('pageC', 'page-left')">Left</a>
+            <a class="button" onclick="javascript:slide('pageC', 'page-center')">Center</a>
+            <a class="button" onclick="javascript:slide('pageC', 'page-right')">Right</a>
+            <br/>
+            <br/>
+            <br/>
+            <span id="pageCclass">class="right"</span>
+        </div>
+    </div>
+</div>
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Slow</h1>
+    <xmp class="prettyprint small">
+.page {
+    position: absolute;top: 0;left: 0;width: 100%;height: 100%;
+}
+.left {
+    left: -100%;
+}
+.center {
+    left: 0;
+}
+.right {
+    left: 100%;
+}
+.transition {
+    transition-duration: .25s;
+}
+    </xmp>
+</div>
+
+
+<div class="slide white">
+    <h1 style="padding-bottom:0">Fast</h1>
+<pre class="prettyprint small">
+.page {
+    position: absolute;top: 0;left: 0;width: 100%;height: 100%;
+    transform: translate3d(0, 0, 0);
+}
+.left {
+    transform: translate3d(-100%, 0, 0);
+}
+.center {
+    transform: translate3d(0, 0, 0);
+}
+.right {
+    transform: translate3d(100%, 0, 0);
+}
+.transition {
+    transition-duration: .25s;
+}
+</pre>
+</div>
+
+<div class="slide">
+<h2>https://github.com/ccoenraets/PageSlider</h2>
+</div>
+
+<div class="slide white">
+    <h1>Frameworks</h1>
+    <img src="images/frameworks.jpg"/>
+</div>
+
+<div class="slide white">
+    <img src="images/framework-matrix.png"/>
+</div>
+
+<div class="slide horizontal">
+    <div style="margin-right: 100px;">
+        <img src="images/angular-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+        <h1>AngularJS</h1>
+    </div>
+    <ol>
+        <li>MVC architecture for client app</li>
+        <li>Dependency Injection</li>
+        <li>Directives</li>
+        <li>Data binding</li>
+        <li>Templates</li>
+    </ol>
+</div>
+
+<div class="slide white" style="padding: 2.5rem;">
+    <h1 style="padding-bottom:0;">app.js</h1>
+<xmp class="prettyprint" style="font-size:1.9rem !important;">angular.module('myApp', ['controllers', 'services'])</xmp>
+
+    <h1 style="padding-top:70px;padding-bottom:0;">index.html</h1>
+<xmp class="prettyprint" style="font-size:1.9rem !important;"><body ng-app="myApp"></body></xmp>
+</div>
+
+<div class="slide white" style="padding: 2.5rem;">
+    <h1 style="padding-bottom:0">services.js</h1>
+<xmp class="prettyprint" style="font-size:1.7rem !important;">angular.module('services', ['ngResource'])
+
+    .factory('Product', function ($resource) {
+        return $resource('http://localhost/product/:id');
+    })
+
+    .factory('Offer', function ($resource) {
+        return $resource('http://localhost/offer/:id');
+    })
+
+});
+</xmp>
+</div>
+
+<div class="slide white" style="padding: 2rem;">
+<h1 style="padding-bottom:0">controllers.js</h1>
+<xmp class="prettyprint" style="font-size:1.6rem !important;">angular.module('controllers', ['services'])
+
+    .controller('ProductList', function ($scope, Product) {
+
+        $scope.products = Product.query();
+
+        $scope.deleteItem = function(product) {
+            product.$delete({id: product.id}, function() {
+                $scope.products = Product.query();
+            });
+        };
+
+    });
+</xmp>
+</div>
+
+<div class="slide white" style="padding: 1.1rem;">
+    <h1 style="padding-bottom:0">product-list.html</h1>
+<pre class="prettyprint" style="font-size:1.7rem !important;">&lt;div ng-repeat="product in products">
+
+    &lt;a href="#/product-detail/{{product.id}}">
+        {{product.name}}
+        &lt;img ng-if="product.pic" ng-src="{{product.pic}}">
+    &lt;/a>
+
+    &lt;a ng-click="deleteItem(product)">Delete&lt;/a>
+
+&lt;/div>
+</pre>
+</div>
+
+
+<div class="slide white" style="padding: 2rem;">
+    <h1 style="padding-bottom: 0">Routing</h1>
+<xmp class="prettyprint" style="font-size:1.8rem !important;">myApp.config(function($stateProvider) {
+    $stateProvider
+        .state('app', {
+            url: "/app",
+            templateUrl: "templates/app.html"
+        })
+        .state('app.product-list', {
+            url: "/products",
+            templateUrl: "templates/product-list.html",
+            controller: ProductList
+        })
+        .state('app.product-details', {
+            url: "/products/:productId",
+            templateUrl: "templates/product.html",
+            controller: ProductDetails
+        })
+});
+</xmp>
+</div>
+
+<div class="slide horizontal">
+    <div style="margin-right: 100px;">
+        <img src="images/ionic-logo.png" class="logo" width="250">
+    </div>
+    <ol>
+        <li>UI Layer on top of&nbsp;AngularJS</li>
+        <li>UI Components</li>
+        <li>UI Components are AngularJS Directives</li>
+        <li>UI Patterns</li>
+        <li>CLI built on top of Cordova</li>
+    </ol>
+</div>
+
+<div class="slide">
+    <img src="images/performance-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+    <h1>Performance</h1>
+    <ul>
+        <li>Hardware accelerated animations</li>
+        <li>Minimal DOM Manipulation</li>
+        <li>Zero jQuery (you could still include it if you want)</li>
+    </ul>
+</div>
+
+
+<div class="slide">
+    <img src="images/native-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+    <h1>Native Focused</h1>
+    <ul>
+        <li>Modeled off of native SDKs</li>
+        <li>Built to work with Cordova/Phonegap</li>
+    </ul>
+</div>
+
+
+<div class="slide">
+    <img src="images/design-icon.png" class="logo" width="210" height="210" style="margin-bottom: 0px">
+    <h1>Beautifully Designed</h1>
+    <ul>
+        <li>Cohesive visual system</li>
+        <li>Clean and simple</li>
+        <li>Easy to customize</li>
+    </ul>
+</div>
+
+
+<div class="slide">
+    <h1>Ionicons</h1>
+    <img src="images/ionicons.png" width="655" height="436">
+    <p>Over 500 font-icons <br/>
+    <a href="http://ionicons.com/" target="_blank">ionicons.com</a></p>
+</div>
+
+
+<div class="slide horizontal">
+    <img src="images/list-example.png" style="max-height: 90%;">
+    <div>
+        <h2>Lists</h2>
+<xmp class="prettyprint small"><div class="list">
+    <div class="item item-divider">
+        Candy Bars
+    </div>
+    <a class="item" href="#">
+        Butterfinger
+    </a>
+    <a class="item" href="#">
+        Kit Kat
+    </a>
+</div>
+</xmp>
+    </div>
+</div>
+
+<div class="slide horizontal">
+    <img src="images/list-complex-example.png" style="max-height: 90%;">
+    <div>
+        <h2>Complex Lists</h2>
+        <ul style="margin-left: 70px">
+            <li>AngularJS Directive</li>
+            <li>Buttons exposed by swiping</li>
+            <li>Reorder</li>
+            <li>Delete</li>
+        </ul>
+<xmp class="prettyprint small" style="margin-top:20px;"><ion-list>
+    <ion-item ng-repeat="item in items"
+              option-buttons="buttons"
+              class="item-thumbnail-left">
+        <img ng-src="{{ item.pic }}">
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.quote }}</p>
+    </ion-item>
+</ion-list>
+</xmp>
     </div>
 
-    
+</div>
 
-  </body>
+<div class="slide horizontal">
+    <img src="images/tabs-example.png" style="max-height: 90%;">
+    <div>
+        <h2>Tabs</h2>
+        <ul style="margin-left: 70px">
+            <li>Nested views</li>
+            <li>Each tab has its own nav history</li>
+        </ul>
+<xmp class="prettyprint small"><ion-tabs tabs-type="tabs-icon-only">
+
+    <ion-tab title="Home" icon="ion-star">
+        <ion-nav-view></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Reviews" icon="ion-down">
+        <ion-nav-view></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Chat" icon="ion-chat">
+        <ion-nav-view></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>
+</xmp>
+    </div>
+</div>
+
+
+<div class="slide horizontal">
+    <img src="images/sidemenu-example.png" style="max-height: 90%;">
+    <div>
+        <h2>Side Menu</h2>
+<xmp class="prettyprint small"><ion-side-menu side="left">
+    <header class="bar bar-header">
+        <div class="title">Projects</div>
+    </header>
+    <ion-content has-header="true">
+        <div class="list">
+            <a href="#/work" class="item">
+                Work
+            </a>
+            <a href="#/home" class="item">
+                Home
+            </a>
+        </div>
+    </ion-content>
+</ion-side-menu>
+
+</xmp>
+    </div>
+</div>
+
+
+<div class="slide horizontal">
+    <img src="images/slidebox-example.png" style="max-height: 90%;">
+    <div>
+        <h2>Slide Box</h2>
+<xmp class="prettyprint small"><ion-slide-box>
+
+    <ion-slide>Slide 1</ion-slide>
+
+    <ion-slide>Slide 2</ion-slide>
+
+    <ion-slide>Slide 3</ion-slide>
+
+</ion-slide-box>
+</xmp>
+    </div>
+</div>
+
+<div class="slide horizontal">
+    <img src="images/actionsheet-example.png"  style="max-height: 90%;">
+    <div>
+        <h2>Action Sheet</h2>
+<xmp class="prettyprint small">$ionicActionSheet.show({
+    titleText: 'Modify your album',
+    buttons: [
+        { text: 'Share' },
+        { text: 'Move' },
+    ],
+    destructiveText: 'Delete',
+    cancelText: 'Cancel',
+    buttonClicked: function(index) {
+        console.log('BUTTON CLICKED', index);
+        return true;
+    }
+});
+</xmp>
+    </div>
+</div>
+
+
+<div class="slide horizontal">
+    <img src="images/pull-refresh-animation.gif" style="max-height: 90%;">
+    <div>
+        <h2>Pull to Refresh</h2>
+<xmp class="prettyprint small"><ion-content>
+    <ion-refresher on-refresh="refreshData()">
+    </ion-refresher>
+    <!-- content -->
+</ion-content>
+</xmp>
+    </div>
+</div>
+
+</div> <!-- end of '#slides' -->
+
+<button id="menu-btn" class="button button-clear icon ion-navicon"></button>
+
+<div id="menu" class="dark-bg">
+    <div class="title">Keypoint</div>
+    <div class="scroller cf">
+        <ol id="list" class="list"></ol>
+    </div>
+</div>
+
+<div id="build-btn-right" style="position: absolute;bottom:0; right:0; width: 150px; height: 150px;border:solid 0px;z-index:100;"></div>
+<div id="build-btn-left" style="position: absolute;bottom:0; left:0; width: 150px; height: 150px;border:solid 0px;z-index:100"></div>
+
+</div>
+
+<script src="lib/jquery.js"></script>
+<script src="cordova.js"></script>
+<script src="lib/fastclick.js"></script>
+<script src="lib/prettify.js"></script>
+<script src="lib/swipeview.js"></script>
+
+<script src="js/keypoint.js"></script>
+<script src="js/slides.js"></script>
+
+</body>
 </html>
